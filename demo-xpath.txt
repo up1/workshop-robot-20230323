@@ -1,0 +1,11 @@
+xpath://*[@id="top"]/div/div[2]/button[1]
+
+<div id="top">
+    <div>
+        <div></div>
+        <div>
+            <button/>
+            <button/>
+        </div>
+    </div>
+</div>
