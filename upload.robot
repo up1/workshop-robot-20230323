@@ -18,8 +18,12 @@ Choose 3 files
 
 Upload and validate progress of first file
     Wait Until Element Is Enabled    xpath://table/tbody/tr[1]/td[5]/button[1]
+    Wait Until Element Is Not Visible    xpath://table/tbody/tr[1]/td[4]/span[3]
+
     Click Element    xpath://table/tbody/tr[1]/td[5]/button[1]
+    
     Wait Until Element Is Visible    xpath://div[@style="width: 33%;"]
+    Wait Until Element Is Visible    xpath://table/tbody/tr[1]/td[4]/span[3]
     
 Upload and validate progress of second file
     Wait Until Element Is Enabled    xpath://table/tbody/tr[2]/td[5]/button[1]
