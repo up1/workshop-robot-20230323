@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    my_keyword.robot
+Resource    xyz/my_keyword.robot
 
 *** Test Cases ***
 Success with upload 3 files
