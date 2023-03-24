@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "82b573f2-1558-4515-a249-a04f22beea25",
+		"name": "thailand-post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1453931"
+	},
+	"item": [
+		{
+			"name": "Get token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"",
+							"    pm.collectionVariables.set(\"ACCESS_TOKEN\", jsonData.token);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://trackapi.thailandpost.co.th/post/api/v1/authenticate/token",
+					"protocol": "https",
+					"host": [
+						"trackapi",
+						"thailandpost",
+						"co",
+						"th"
+					],
+					"path": [
+						"post",
+						"api",
+						"v1",
+						"authenticate",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tracking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6IkF1dGhvcml6YXRpb24iLCJleHAiOjE2ODIzMjQ5NjAsInJvbCI6WyJST0xFX1VTRVIiXSwiZCpzaWciOnsicCI6InpXNzB4IiwicyI6bnVsbCwidSI6ImNhNGRlOTU4YjRjYWM2MDM0M2NhODU0ZTYxMWFkNjQ1IiwiZiI6InhzeiM5In19.P-m4NWVQSvCDrjgMCJquGX9EVDIctGIPz7n6_qsrdYTYKbHceBMrODvUG1u2rWWby9ppgif3rZ38GaaRvxADRA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"status\": \"all\",\n   \"language\": \"TH\",\n   \"barcode\": [\n       \"EY145587896TH\",\n       \"RC338848854TH\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://trackapi.thailandpost.co.th/post/api/v1/track?Authorization=Token {{ACCESS_TOKEN}}&Content-Type=application/json",
+					"protocol": "https",
+					"host": [
+						"trackapi",
+						"thailandpost",
+						"co",
+						"th"
+					],
+					"path": [
+						"post",
+						"api",
+						"v1",
+						"track"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Token {{ACCESS_TOKEN}}"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "ACCESS_TOKEN",
+			"value": ""
+		},
+		{
+			"key": "XXX_TOKEN",
+			"value": "RcU+LwT6BmMXS@RYCOHVF+K4NZHiJ#RCP&A2D.H7JYDUGnKVSgGMN~U;M%IIImJxH.IfPJEFLqHXBNLAN6IoG9KXA_F@TbGJJdFF"
+		}
+	]
+}
