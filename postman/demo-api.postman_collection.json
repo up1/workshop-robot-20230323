@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "d5fbc6db-becb-4f1c-a7b6-dc7986fa872e",
+		"name": "demo-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1453931"
+	},
+	"item": [
+		{
+			"name": "Success : Get user with id = 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(1);",
+							"    pm.expect(jsonData.name).to.eql('Leanne Graham');",
+							"    pm.expect(jsonData.username).to.eql('Bret');",
+							"    pm.expect(jsonData.address.street).to.eql('Kulas Light');",
+							"});",
+							"",
+							"var schema = {",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+							"  \"type\": \"object\",",
+							"  \"properties\": {",
+							"    \"id\": {",
+							"      \"type\": \"integer\"",
+							"    },",
+							"    \"name\": {",
+							"      \"type\": \"string\"",
+							"    },",
+							"    \"username\": {",
+							"      \"type\": \"string\"",
+							"    },",
+							"    \"email\": {",
+							"      \"type\": \"string\"",
+							"    },",
+							"    \"address\": {",
+							"      \"type\": \"object\",",
+							"      \"properties\": {",
+							"        \"street\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"suite\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"city\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"zipcode\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"geo\": {",
+							"          \"type\": \"object\",",
+							"          \"properties\": {",
+							"            \"lat\": {",
+							"              \"type\": \"string\"",
+							"            },",
+							"            \"lng\": {",
+							"              \"type\": \"string\"",
+							"            }",
+							"          },",
+							"          \"required\": [",
+							"            \"lat\",",
+							"            \"lng\"",
+							"          ]",
+							"        }",
+							"      },",
+							"      \"required\": [",
+							"        \"street\",",
+							"        \"suite\",",
+							"        \"city\",",
+							"        \"zipcode\",",
+							"        \"geo\"",
+							"      ]",
+							"    },",
+							"    \"phone\": {",
+							"      \"type\": \"string\"",
+							"    },",
+							"    \"website\": {",
+							"      \"type\": \"string\"",
+							"    },",
+							"    \"company\": {",
+							"      \"type\": \"object\",",
+							"      \"properties\": {",
+							"        \"name\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"catchPhrase\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"bs\": {",
+							"          \"type\": \"string\"",
+							"        }",
+							"      },",
+							"      \"required\": [",
+							"        \"name\",",
+							"        \"catchPhrase\",",
+							"        \"bs\"",
+							"      ]",
+							"    }",
+							"  },",
+							"  \"required\": [",
+							"    \"id\",",
+							"    \"name\",",
+							"    \"username\"",
+							"  ]",
+							"};",
+							"",
+							"var data1 = pm.response.json();",
+							"",
+							"pm.test('Schema is valid', function () {",
+							"    pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Success : Get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
